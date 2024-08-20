@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [MainPageComponent, AuthComponent, RegComponent],
@@ -24,6 +26,8 @@ import { ButtonModule } from 'primeng/button';
     InputTextModule,
     FloatLabelModule,
     ButtonModule,
+    ToastModule,
   ],
+  providers: [MessageService]
 })
 export class MainPageModule {}

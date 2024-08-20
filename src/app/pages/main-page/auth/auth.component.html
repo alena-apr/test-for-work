@@ -1,1 +1,12 @@
-<p>auth works!</p>
+<form class="form" [formGroup]="authForm">
+    <p-floatLabel>
+        <input type="text" pInputText id="login" formControlName="login">
+        <label for="login">Логин</label>
+    </p-floatLabel>
+    <p-floatLabel>
+        <input type="password" pInputText id="psw" formControlName="psw">
+        <label for="psw">Пароль</label>
+    </p-floatLabel>
+    <p-toast position="top-left" />
+    <p-button label="Войти" (click)="onAuth()"/>
+</form>
