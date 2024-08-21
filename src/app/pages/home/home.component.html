@@ -1,6 +1,7 @@
 <div class="main-content">
     <app-header></app-header>
     <div class="main-div">
+        @if(allUsers) {
         <div class="card">
             <p-table [value]="allUsers" [tableStyle]="{'min-width': '50rem'}">
                 <ng-template pTemplate="header">
@@ -36,6 +37,10 @@
                 </ng-template>
             </p-table>
         </div>
+        }
+        @else {
+        <span>Пользователей нет</span>
+        }
     </div>
     <app-footer></app-footer>
 </div>
