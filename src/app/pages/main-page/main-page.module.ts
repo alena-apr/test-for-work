@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { MainPageComponent } from './main-page.component';
 
-// import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { AuthComponent } from './auth/auth.component';
 import { RegComponent } from './reg/reg.component';
@@ -28,6 +27,6 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     ToastModule,
   ],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class MainPageModule {}

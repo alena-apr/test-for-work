@@ -14,31 +14,27 @@ import { Router } from '@angular/router';
 export class AuthComponent {
   authForm: FormGroup = new FormGroup({
     login: new FormControl('', [Validators.required]),
-    psw: new FormControl('', [Validators.required]),
+    psw: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private messageService: MessageService, 
+    private messageService: MessageService,
     private router: Router
   ) {}
 
   onAuth(): void {
-    console.log('BOOM!');
     const authUserObj: IUser = {
       login: this.authForm.getRawValue().login,
       psw: this.authForm.getRawValue().psw,
     };
-    console.log(authUserObj);
 
     if (this.authService.checkUser(authUserObj)) {
-      console.log('AUTH TRUE');
       this.userService.setUser(authUserObj);
-      this.userService.setToken('user-private-token');
+      // this.userService.setToken('user-private-token');
       this.router.navigate(['home']);
     } else {
-      console.log('auth false');
       this.messageService.add({
         severity: 'error',
         summary: `Неверный логин или пароль`,

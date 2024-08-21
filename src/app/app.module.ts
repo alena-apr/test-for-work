@@ -6,16 +6,10 @@ import { AppComponent } from './app.component';
 
 import { provideAnimations } from '@angular/platform-browser/animations';
 
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [provideAnimations()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

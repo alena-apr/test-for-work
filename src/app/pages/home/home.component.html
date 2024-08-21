@@ -1,2 +1,41 @@
-<p>home works!</p>
-<p>HERE IS SOMETHING</p>
+<div class="main-content">
+    <app-header></app-header>
+    <div class="main-div">
+        <div class="card">
+            <p-table [value]="allUsers" [tableStyle]="{'min-width': '50rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="regDate" style="width:20%">
+                            Регистрация <p-sortIcon field="regDate" />
+                        </th>
+                        <th pSortableColumn="name" style="width:20%">
+                            Имя <p-sortIcon field="name" />
+                        </th>
+                        <th pSortableColumn="login" style="width:20%">
+                            Логин <p-sortIcon field="login" />
+                        </th>
+                        <th pSortableColumn="psw" style="width:20%">
+                            Пароль <p-sortIcon field="psw" />
+                        </th>
+                        <th pSortableColumn="btn" style="width:20%">
+                            Удаление <p-sortIcon field="btn" />
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <td>{{ user.regDate }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.login }}</td>
+                        <td>{{ user.psw }}</td>
+                        <td>
+                            <p-button severity="secondary" [disabled]="user.login === currentUser.login"
+                                (click)="deleteUser(user)">Удалить пользователя</p-button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

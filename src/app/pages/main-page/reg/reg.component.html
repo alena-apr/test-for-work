@@ -1,7 +1,4 @@
-<!-- <p>reg works!</p> -->
-
 <form class="form" [formGroup]="regForm">
-    <!-- <span class="user-number">Пользователь № 1</span> -->
     <p-floatLabel>
         <input type="text" pInputText id="name" formControlName="name">
         <label for="name">Имя</label>
@@ -18,37 +15,17 @@
         <input type="password" pInputText id="pswRepeat" formControlName="pswRepeat">
         <label for="pswRepeat">Повторить пароль</label>
     </p-floatLabel>
-    <!-- <input type="text" pInputText formControlName="login"> -->
-    <!-- <input type="text" pInputText formControlName="psw"> -->
-
-    <!-- <div formArrayName="userInfo">
-        @for (info of userInfo.controls; track info; let i = $index) {
-        <div [formGroupName]="i" class="form">
-            <span class="user-number">Пользователь № {{i+2}}</span>
-            <p-floatLabel>
-                <input type="text" pInputText id="name" formControlName="name">
-                <label for="name">Имя</label>
-            </p-floatLabel>
-            <p-floatLabel>
-                <input type="text" pInputText id="login" formControlName="login">
-                <label for="login">Логин</label>
-            </p-floatLabel>
-            <p-floatLabel>
-                <input type="password" pInputText id="psw" formControlName="psw">
-                <label for="psw">Пароль</label>
-            </p-floatLabel>
-            <p-floatLabel>
-                <input type="password" pInputText id="pswRepeat" formControlName="pswRepeat">
-                <label for="pswRepeat">Повторить пароль</label>
-            </p-floatLabel>
-            <p-button severity="secondary" label="Удалить пользователя {{i+2}}" (click)="removeUserInfo(i)" />
-        </div>
-        }
-    </div> -->
-
-    <!-- <p-button severity="secondary" label="Добавить пользователя" (click)="addUserInfo()" /> -->
-    <!-- import { ButtonModule } from 'primeng/button'; -->
-    <p-button label="Payload" (click)="showPayload()" />
-    <p-toast position="top-left"/>
-    <p-button label="Зарегистрироваться" (click)="registration()" />
+    <p-toast position="top-left" />
+    <ng-container
+        *ngIf="regForm.controls.psw.touched && regForm.controls.psw.dirty && regForm.controls.psw.errors?.minlength && regForm.controls.psw.errors?.passwordStrength"
+        [ngTemplateOutlet]="strongPsw"></ng-container>
+    <p-button label="Зарегистрироваться" (click)="registration()" [disabled]="!regForm.valid" />
 </form>
+
+<ng-template #strongPsw>
+    <div class="error-warning">
+        <p>
+            Пароль должен содержать не менее 6 символов, <br>буквы в верхнем и нижнем регистре <br>и число
+        </p>
+    </div>
+</ng-template>

@@ -1,0 +1,16 @@
+@if (currentUser) {
+<div class="header">
+    <div class="hello">
+        <div class="name">Привет, {{currentUser.login}}!</div>
+        <a routerLink="/" class="p-button">Назад</a>
+    </div>
+</div>
+}
+@else {
+<div class="header">
+    <div class="hello">
+        <div class="name">Привет!</div>
+        <a routerLink="/" class="p-button">Назад</a>
+    </div>
+</div>
+}

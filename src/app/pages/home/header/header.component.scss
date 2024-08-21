@@ -1,0 +1,19 @@
+.header {
+  background-color: rgba(240, 255, 255, 0.5);
+}
+.hello {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-items: center;
+  padding-block: 2rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,11 +1,13 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.5rem;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-// .user-number {
-//     font-size: 1.5rem;
-// }
+.error-warning {
+  font-size: 0.85rem;
+  color: brown;
+  text-align: center;
+}

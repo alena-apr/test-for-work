@@ -8,5 +8,16 @@
         <label for="psw">Пароль</label>
     </p-floatLabel>
     <p-toast position="top-left" />
-    <p-button label="Войти" (click)="onAuth()"/>
+    <ng-container
+        *ngIf="authForm.controls.psw.touched && authForm.controls.psw.dirty && authForm.controls.psw.errors?.minlength"
+        [ngTemplateOutlet]="psw"></ng-container>
+    <p-button label="Войти" (click)="onAuth()" [disabled]="!authForm.valid" />
 </form>
+
+<ng-template #psw>
+    <div class="error-warning">
+        <p>
+            Пароль должен содержать не менее 6 символов
+        </p>
+    </div>
+</ng-template>

@@ -1,6 +1,6 @@
 export interface IUser {
-    name?: string;
-    login: string;
-    psw: string;
-    regDate?: Date;
+  name?: string;
+  login: string;
+  psw: string;
+  regDate?: string;
 }
